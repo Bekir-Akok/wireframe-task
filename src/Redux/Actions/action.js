@@ -1,5 +1,5 @@
-export const addToLink =(name , url , vote) => {
-    return {type: 'ADD_TO_LINK' , payload: {name , url ,vote}}
+export const addToLink =(name , url , vote, time) => {
+    return {type: 'ADD_TO_LINK' , payload: {name , url ,vote , time}}
 }
 
 export const voteUp = (vote , url) => {

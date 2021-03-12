@@ -32,26 +32,25 @@ const Card = props => {
 
     useEffect(() => {
         if(select === "Order By"){
-            return props.links
-        } if(select === "Less Voted"){
+            return props.links.sort((a,b) => a.time - b.time)
+        }else if(select === "Less Voted"){
             return props.links.sort((a,b) => b.vote - a.vote)
-        } if(select === "Most Voted") {
+        }else if(select === "Most Voted") {
            return props.links.sort((a,b) => a.vote - b.vote)
         }
     }, [select , props.links])
-    
+
     return (
         <div>
             <FormControl className={classes.formControl}>
                 <Select
-                    native
+                    native 
                     value={select}
                     onChange={(e) => setSelect(e.target.value)}
-                    onClick={(e) => setSelect(e.target.value)}
                 >
-                    <option aria-label="None" value={"Order by"}>Ordey By</option>
-                    <option value={"Most Voted"}>Most Voted</option>
-                    <option value={"Less Voted"}>Less Voted</option>
+                    <option defaultValue="Order by" aria-label="None" value="Order by">Ordey By</option>
+                    <option value="Most Voted">Most Voted</option>
+                    <option value="Less Voted">Less Voted</option>
                 </Select>
             </FormControl>
             {

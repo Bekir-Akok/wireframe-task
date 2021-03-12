@@ -10,6 +10,7 @@ const AddToLink = props => {
     const [linkName, setLinkName] = useState('');
     const [linkURL, setLinkURL] = useState('');
     const [linkVote, setLinkVote] = useState(0);
+    const [linkTime, setLinkTime] = useState(Date.now());
    
     let history = useHistory();
 
@@ -27,7 +28,7 @@ const AddToLink = props => {
                 <label>Link URL:</label>
                 <input required type="text" placeholder="e.g https://abc.xyz"  onChange={(e) =>setLinkURL(e.target.value) }/>
                 <div className="btn">
-                    <button type="button" onClick={() => props.addToLink(linkName , linkURL , linkVote) && handleClick()}>ADD</button>
+                    <button type="button" onClick={() => props.addToLink(linkName , linkURL , linkVote ,linkTime) && handleClick()}>ADD</button>
                 </div>
             </form>
         </div>
