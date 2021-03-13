@@ -7,7 +7,7 @@ export const reducer = (state = initialState , action) => {
     switch(action.type){
 
         case 'ADD_TO_LINK':
-            return {...state , links: [...state.links , action.payload]}
+            return {...state , links: [action.payload , ...state.links ]}
 
         case 'REMOVE_TO_LINK':
             return {...state , links: state.links.filter(link => link.url !== action.payload.url)}
